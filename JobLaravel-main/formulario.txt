@@ -1,0 +1,67 @@
+<form action="{{ route('postagem.store') }}" method="post">
+        @csrf   
+        <div class="row mb-3">
+              
+            <div class="form-group">
+                <label for="titulo" class="form-label">titulo:</label>
+                <input type="text"
+                    autofocus
+                    name="titulo" 
+                    id="titulo" 
+                    class="form-control" 
+                    value="{{ old('titulo') }}">
+            </div>
+
+            <div class="form-group">
+                <label for="conteudo" class="form-label">Conteudo</label>
+                <input type="text"
+                    name="conteudo" 
+                    id="conteudo" 
+                    class="form-control" 
+                    value="{{ old('conteudo') }}">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Adicionar</button>
+        </form>
+
+
+
+
+EDIT
+
+
+<form action="{{ url('postagem/'. $postagem->id) }}" method="post">
+        @csrf   
+        @method('PUT')
+        <div class="row mb-3">
+              
+            <div class="form-group">
+                <label for="titulo" class="form-label">titulo:</label>
+                <input type="text"
+                    autofocus
+                    name="titulo" 
+                    id="titulo" 
+                    class="form-control" 
+                    value="{{ ($postagem->titulo) }}">
+            </div>
+
+            <div class="form-group">
+                <label for="conteudo" class="form-label">Conteudo</label>
+                <input type="text"
+                    name="conteudo" 
+                    id="conteudo" 
+                    class="form-control" 
+                    value="{{ ($postagem->conteudo) }}">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Alterar</button>
+        </form>
+
+
+
+        instalando breeze via composer
+        --> composer require laravel/breeze --dev
+
+        instalando brezze via artisan
+
+        --> php artisan brezze:install
